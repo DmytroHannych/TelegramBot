@@ -6,13 +6,14 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import static TelegramBot.Currency.*;
 
-public class GetCurrencyMonobankRateService implements GetCurrencyBankRateService {
+public class GetCurrencyMonobankRateService extends CurrencyRateDto implements GetCurrencyBankRateService {
     private static final String URL = "https://api.monobank.ua/bank/currency";
     private static Map<Integer, Currency> codeCurr = Map.of(
             980, UAH,
@@ -21,7 +22,7 @@ public class GetCurrencyMonobankRateService implements GetCurrencyBankRateServic
     );
 
     @Override
-    public List<CurrencyRateDto> getCurrencyRate() throws IOException {
+    public List<CurrencyRateDto> getCurrencyRate(String command, DecimalFormat df)  {
         try {
             String responce = Jsoup.connect(URL).ignoreContentType(true).get().body().text();
             List<CurrencyRateMonobankResponceDto> monobankResponceDtos = convertResponceToList(responce);

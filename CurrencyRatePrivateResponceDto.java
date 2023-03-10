@@ -11,12 +11,10 @@ public class CurrencyRatePrivateResponceDto {
 
     @Override
     public String toString() {
-        return "CurrencyRatePrivateResponceDto{" +
-                "ccy=" + ccy +
-                ", base_ccy=" + base_ccy +
-                ", buy=" + buy +
-                ", sale=" + sale +
-                '}';
+        return "Приват банк курс" +
+                "валюта " + ccy +
+                ", продаж = " + buy +
+                ", купівля =" + sale;
     }
 
     public Currency getCcy() {

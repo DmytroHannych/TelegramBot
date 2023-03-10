@@ -39,5 +39,13 @@ public class CurrencyRateMonobankResponceDto {
     public void setRateSell(BigDecimal rateSell) {
         this.rateSell = rateSell;
     }
+
+    @Override
+    public String toString() {
+        return "МоноБанк курс " +
+                " валюта " + currencyCodeB +
+                ", продаж =" + rateBuy +
+                ", купівля =" + rateSell;
+    }
 }
 

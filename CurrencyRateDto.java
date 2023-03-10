@@ -52,11 +52,10 @@ public class CurrencyRateDto {
 
    @Override
    public String toString() {
-      return "CurrencyRateDto{" +
-              "currency=" + currency +
-              ", bankName=" + bankName +
-              ", buyRate=" + buyRate +
-              ", saleRate=" + saleRate +
-              '}';
+      return
+              " \n " + bankName +
+                      " \n Валюта " + currency +
+                      ", \n  курс продажу " + buyRate +
+                      ",\n курс купівлі " + saleRate;
    }
 }

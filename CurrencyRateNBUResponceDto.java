@@ -30,4 +30,11 @@ public class CurrencyRateNBUResponceDto {
     public void setRate(BigDecimal rate) {
         this.rate = rate;
     }
+
+    @Override
+    public String toString() {
+        return "НБУ курс  " +
+                ",валюта " + cc + '\'' +
+                ", курс =" + rate ;
+    }
 }

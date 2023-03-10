@@ -7,6 +7,7 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 import static TelegramBot.Currency.EUR;
 import static TelegramBot.Currency.USD;
 
-public class GetCurrencyNBURateService implements GetCurrencyBankRateService {
+public class GetCurrencyNBURateService extends CurrencyRateDto implements GetCurrencyBankRateService {
 
     private static final String URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
 
@@ -23,7 +24,7 @@ public class GetCurrencyNBURateService implements GetCurrencyBankRateService {
             978, EUR
             );
     @Override
-    public List<CurrencyRateDto> getCurrencyRate() throws IOException {
+    public List<CurrencyRateDto> getCurrencyRate(String command, DecimalFormat df)  {
         try {
             String responce = Jsoup.connect(URL).ignoreContentType(true).get().body().text();
             List<CurrencyRateNBUResponceDto> rateNBUResponceDtos = convertResponceToList(responce);
